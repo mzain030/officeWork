@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import LoginForm from './components/LoginForm';
+import Modal from './components/Modal';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Auth0Provider
+    domain="dev-gy5gpypwdzwoaghb.us.auth0.com"
+    clientId="uwFacj5B2qDPdAw8OPPQeAaAUpHLoo5U"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
+  <LoginForm/>
+  </Auth0Provider>
+  {/* <Modal/> */}
     </div>
   );
 }
